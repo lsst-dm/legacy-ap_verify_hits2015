@@ -12,7 +12,7 @@ Relevant Files and Directories
 path                  | description
 :---------------------|:-----------------------------
 `raw`                 | To be populated with photometrically and astrometrically calibrated data. Currently contains a single small fits file (taken from `obs_test`) to test `git-lfs` functionality.
-`data`                | Butler repo of ingested raw data and processCcd results. Currently only contains `_mapper` file which should be modified.
+`data`                | Butler repo into which raw data can be ingested.  This should be copied to an appropriate location before ingestion.  Note that the `_mapper` file will require updating for other instruments.
 `ref_cats`            | To be populated with relevant reference catalogs. Currently empty
 `dataIds.list`        | List of dataIds in this repo. For use in running Tasks. Currently set to run all Ids.
 
