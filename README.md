@@ -1,7 +1,5 @@
-`verify_ap_dataset_template`
-============================
-
-Template repo for developing datasets for use with verify_ap.
+# verify_ap_hits2015
+Data from HiTS (2015) to verify the performance of alert production in the LSST DM stack.
 
 This repo is designed to be used as a template for developing new data sets for integration into `verify_ap`.
 
