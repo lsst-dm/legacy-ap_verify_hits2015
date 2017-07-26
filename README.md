@@ -1,21 +1,30 @@
 # verify_ap_hits2015
+
 Data from HiTS (2015) to verify the performance of alert production in the LSST DM stack.
 
-This repo is designed to be used as a template for developing new data sets for integration into `verify_ap`.
-
-It is currently set up for using `obs_test`.
+Contains DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
 
 Relevant Files and Directories
 -----
 path                  | description
 :---------------------|:-----------------------------
-`raw`                 | To be populated with photometrically and astrometrically calibrated data. Currently contains a single small fits file (taken from `obs_test`) to test `git-lfs` functionality.
-`calib`               | To be populated with master calibs. Currently empty.
+`raw`                 | Photometrically and astrometrically calibrated compressed DECam fits images from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
+`calib`               | DECam master calibs and `wtmap`s from the 2015 HiTS campaign. No raw images. See below for filename information.
 `templates`           | To be populated with calibrated images intended to be used as templates. Currently empty.
-`data`                | Butler repo into which raw data can be ingested.  This should be copied to an appropriate location before ingestion.  Note that the `_mapper` file will require updating for other instruments.
-`ref_cats`            | To be populated with relevant reference catalogs. Currently empty.
-`dataIds.list`        | List of dataIds in this repo. For use in running Tasks. Currently set to run all Ids.
+`data`                | Butler repo into which raw data can be ingested. This should be copied to an appropriate location before ingestion. Currently contains the appropriate DECam `_mapper` file.
+`ref_cats`            | Tarballs of Gaia and PS1 reference catalogs in HTM format for regions overlapping all three HiTS fields.
+`dataIds.list`        | List of dataIds for use in running Tasks. Currently set to run all Ids.
 
+Master calibration file names
+-----------------------------
+
+Below are the different types of master calibration files in the `calib` directory:
+
+* fci: dome flat images
+* fcw: dome flat weight maps
+* zci: zero/bias images
+* zcw: zero/bias weight maps
+* ici: illumcor images
 
 Git LFS
 -------
