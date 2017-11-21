@@ -10,7 +10,7 @@ path                  | description
 :---------------------|:-----------------------------
 `raw`                 | Raw, compressed DECam fits images from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
 `calib`               | DECam master calibs and `wtmap`s from the 2015 HiTS campaign. No raw images. See below for filename information.
-`templates`           | To be populated with calibrated images intended to be used as templates. Currently empty.
+`templates`           | Butler repo containing coadded images intended to be used as templates.
 `repo`                | Butler repo into which raw data can be ingested. This should be copied to an appropriate location before ingestion. Currently contains the appropriate DECam `_mapper` file.
 `refcats`             | Tarballs of Gaia and PS1 reference catalogs in HTM format for regions overlapping all three HiTS fields.
 `dataIds.list`        | List of dataIds for use in running Tasks. Currently set to run all Ids.
