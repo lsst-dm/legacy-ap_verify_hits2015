@@ -1,0 +1,16 @@
+# Documentation manifest.
+
+# Name of this package
+# Also the name of the package documentation subdirectory.
+package: "ap_verify_hits2015"
+
+# List of names of Python modules in this package.
+# For each module there is a corresponding module doc subdirectory.
+# modules:
+#   - "lsst.ap.verify.hits2015"
+
+# Name of the static content directories (subdirectories of `_static`).
+# Static content directories are usually named after the package.
+# statics:
+#   - "_static/ap_verify_hits2015"
+
