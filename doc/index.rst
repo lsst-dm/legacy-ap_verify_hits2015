@@ -10,4 +10,3 @@ ap_verify_hits2015 documentation preview
    :maxdepth: 1
 
    ap_verify_hits2015/index
-
