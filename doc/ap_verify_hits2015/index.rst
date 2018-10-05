@@ -4,7 +4,7 @@
 ap_verify_hits2015
 ##################
 
-The ``ap_verify_hits2015`` package represents a small subset of the DECam `HiTS`_ survey, formatted for use with `lsst.ap.verify`.
+The ``ap_verify_hits2015`` package represents a small subset of the DECam `HiTS`_ survey, formatted for use with :doc:`/modules/lsst.ap.verify/index`.
 It is a good example dataset for difference imaging with DECam.
 
 .. _HiTS: https://doi.org/10.3847/0004-637X/832/2/155
@@ -14,7 +14,7 @@ It is a good example dataset for difference imaging with DECam.
 Using ap_verify_hits2015
 ========================
 
-This dataset is designed for medium-scale difference imaging analysis, using "deep" coadd templates, by `lsst.ap.verify`.
+This dataset is designed for medium-scale difference imaging analysis, using "deep" coadd templates, by :doc:`/modules/lsst.ap.verify/index`.
 It can also be used for difference imaging with single-image templates, but the single-season coverage of the raw data means the resulting difference images may be low quality.
 
 The HiTS survey has a high cadence compared to other DECam datasets, so this dataset is good for testing cadence-sensitive applications.
