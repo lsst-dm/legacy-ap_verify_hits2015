@@ -46,7 +46,7 @@ This dataset must be cloned (with Git LFS) and set up with [EUPS](https://develo
 
 Then, run `ap_verify` to ingest and process the dataset through the AP pipeline:
 
-    ap_verify.py --dataset HiTS2015 --id "visit=54123 ccdnum=25 filter=g" --output /my_output_dir/ --silent
+    ap_verify.py --dataset HiTS2015 --id "visit=411822 ccdnum=25 filter=g" --output /my_output_dir/ --silent
 
 or, instead, run `ingest_dataset` to create standard Butler repositories for other purposes
 
