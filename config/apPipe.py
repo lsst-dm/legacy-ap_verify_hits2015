@@ -32,8 +32,8 @@ config.ccdProcessor.calibrate.photoRefObjLoader.filterMap = {
     "y": "y",
     "VR": "g"}
 
-# Templates are deepCoaddPsfMatched
+# Templates are deepCoadds assembled with the CompareWarp algorithm
 config.differencer.coaddName = "deep"
 config.differencer.getTemplate.coaddName = config.differencer.coaddName
-config.differencer.getTemplate.warpType = "psfMatched"
+config.differencer.getTemplate.warpType = "direct"
 
