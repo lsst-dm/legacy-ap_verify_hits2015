@@ -41,7 +41,6 @@ It contains:
     * 2 visits to ``Blind15A_42``: visit IDs 419822, 421516
 * biases (``zci``), flats (``fci``), and corresponding weight maps (``zcw``, ``fcw``) in all DECam bands (ugriz, Y, VR). [Note: weights are not currently used by ``ap_verify`` or ``ap_pipe``]
 * illumination corrections (``ici``) in g, r, and i band. [Note: illumcors are not currently used by ``ap_verify`` or ``ap_pipe``]
-* defect masks (``bpm``) from December 5, 2014.
 * reference catalogs for Gaia DR1 and Pan-STARRS1, covering the raw images' footprint.
 * image differencing templates coadded from HiTS 2014 data, covering the raw images' footprint.
 
