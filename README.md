@@ -37,19 +37,13 @@ Our [Developer Guide](http://developer.lsst.io/en/latest/tools/git_lfs.html) exp
 Usage
 -----
 
-<!-- TODO: replace with just links to Sphinx labels `ap-verify-datasets-install` and `ap-verify-running` once those docs are published -->
+`ap_verify_hits2015` is designed to be run using [`ap_verify`](https://pipelines.lsst.io/modules/lsst.ap.verify/), which is distributed as part of the `lsst_distrib` package of the [LSST Science Pipelines](https://pipelines.lsst.io/).
 
-This dataset must be cloned (with Git LFS) and set up with [EUPS](https://developer.lsst.io/stack/eups-tutorial.html) before it can be processed with `ap_verify`:
+This dataset is not included in `lsst_distrib` and is not available through `newinstall.sh`.
+However, it can be installed explicitly with the [LSST Software Build Tool](https://developer.lsst.io/stack/lsstsw.html) or by cloning directly:
 
     git clone https://github.com/lsst/ap_verify_hits2015/
     setup -r ap_verify_hits2015
 
-Then, run `ap_verify` to ingest and process the dataset through the AP pipeline:
+See the Science Pipelines documentation for more detailed instructions on [installing datasets](https://pipelines.lsst.io/modules/lsst.ap.verify/datasets-install.html) and [running `ap_verify`](https://pipelines.lsst.io/modules/lsst.ap.verify/running.html).
 
-    ap_verify.py --dataset HiTS2015 --id "visit=411822 ccdnum=25 filter=g" --output /my_output_dir/ --silent
-
-or, instead, run `ingest_dataset` to create standard Butler repositories for other purposes
-
-    ingest_dataset.py --dataset HiTS2015 --output /my_output_dir/
-
-See the [`ap_verify`](https://github.com/lsst-dm/ap_verify/) documentation for more details.
