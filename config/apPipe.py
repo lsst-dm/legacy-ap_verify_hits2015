@@ -13,7 +13,9 @@ config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcdCpIsr.py"))
 for refObjLoader in (config.ccdProcessor.calibrate.astromRefObjLoader,
                      config.ccdProcessor.calibrate.photoRefObjLoader,):
     refObjLoader.retarget(LoadIndexedReferenceObjectsTask)
-config.ccdProcessor.calibrate.astromRefObjLoader.ref_dataset_name = "gaia"
+config.ccdProcessor.calibrate.connections.astromRefCat = "gaia"
+config.ccdProcessor.calibrate.astromRefObjLoader.ref_dataset_name = \
+    config.ccdProcessor.calibrate.connections.astromRefCat
 config.ccdProcessor.calibrate.astromRefObjLoader.filterMap = {
     "u": "phot_g_mean_mag",
     "g": "phot_g_mean_mag",
@@ -22,7 +24,9 @@ config.ccdProcessor.calibrate.astromRefObjLoader.filterMap = {
     "z": "phot_g_mean_mag",
     "y": "phot_g_mean_mag",
     "VR": "phot_g_mean_mag"}
-config.ccdProcessor.calibrate.photoRefObjLoader.ref_dataset_name = "pan-starrs"
+config.ccdProcessor.calibrate.connections.photoRefCat = "pan-starrs"
+config.ccdProcessor.calibrate.photoRefObjLoader.ref_dataset_name = \
+    config.ccdProcessor.calibrate.connections.photoRefCat
 config.ccdProcessor.calibrate.photoRefObjLoader.filterMap = {
     "u": "g",
     "g": "g",
