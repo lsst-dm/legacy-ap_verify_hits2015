@@ -10,6 +10,7 @@ config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcdCpIsr.py"))
 
 # Use gaia for astrometry (phot_g_mean_mag is only available DR1 filter)
 # Use pan-starrs for photometry (grizy filters)
+# Use panstarrs for photometry (grizy filters)
 for refObjLoader in (config.ccdProcessor.calibrate.astromRefObjLoader,
                      config.ccdProcessor.calibrate.photoRefObjLoader,):
     refObjLoader.retarget(LoadIndexedReferenceObjectsTask)
@@ -24,7 +25,7 @@ config.ccdProcessor.calibrate.astromRefObjLoader.filterMap = {
     "z": "phot_g_mean_mag",
     "y": "phot_g_mean_mag",
     "VR": "phot_g_mean_mag"}
-config.ccdProcessor.calibrate.connections.photoRefCat = "pan-starrs"
+config.ccdProcessor.calibrate.connections.photoRefCat = "panstarrs"
 config.ccdProcessor.calibrate.photoRefObjLoader.ref_dataset_name = \
     config.ccdProcessor.calibrate.connections.photoRefCat
 config.ccdProcessor.calibrate.photoRefObjLoader.filterMap = {
