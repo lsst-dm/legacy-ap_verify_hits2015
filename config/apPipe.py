@@ -8,8 +8,9 @@ decamConfigDir = os.path.join(getPackageDir('obs_decam'), 'config')
 # Use Community Pipeline calibration products instead of the defaults
 config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcdCpIsr.py"))
 
-# Use gaia for astrometry (phot_g_mean_mag is only available DR1 filter)
-# Use pan-starrs for photometry (grizy filters)
+# Use gaia for astrometry (phot_g_mean for everything, as that is the broadest
+# band with the most depth)
+# Use panstarrs for photometry (grizy filters)
 for refObjLoader in (config.ccdProcessor.calibrate.astromRefObjLoader,
                      config.ccdProcessor.calibrate.photoRefObjLoader,):
     refObjLoader.retarget(LoadIndexedReferenceObjectsTask)
@@ -17,14 +18,14 @@ config.ccdProcessor.calibrate.connections.astromRefCat = "gaia"
 config.ccdProcessor.calibrate.astromRefObjLoader.ref_dataset_name = \
     config.ccdProcessor.calibrate.connections.astromRefCat
 config.ccdProcessor.calibrate.astromRefObjLoader.filterMap = {
-    "u": "phot_g_mean_mag",
-    "g": "phot_g_mean_mag",
-    "r": "phot_g_mean_mag",
-    "i": "phot_g_mean_mag",
-    "z": "phot_g_mean_mag",
-    "y": "phot_g_mean_mag",
-    "VR": "phot_g_mean_mag"}
-config.ccdProcessor.calibrate.connections.photoRefCat = "pan-starrs"
+    "u": "phot_g_mean",
+    "g": "phot_g_mean",
+    "r": "phot_g_mean",
+    "i": "phot_g_mean",
+    "z": "phot_g_mean",
+    "y": "phot_g_mean",
+    "VR": "phot_g_mean"}
+config.ccdProcessor.calibrate.connections.photoRefCat = "panstarrs"
 config.ccdProcessor.calibrate.photoRefObjLoader.ref_dataset_name = \
     config.ccdProcessor.calibrate.connections.photoRefCat
 config.ccdProcessor.calibrate.photoRefObjLoader.filterMap = {
