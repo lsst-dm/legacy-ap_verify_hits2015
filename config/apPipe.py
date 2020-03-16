@@ -10,7 +10,5 @@ config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcd.py"))
 # Use dataset's reference catalogs
 config.ccdProcessor.calibrate.load(os.path.join(configDir, 'calibrate.py'))
 
-# Templates are deepCoadds assembled with the CompareWarp algorithm
-config.differencer.coaddName = "deep"
-config.differencer.getTemplate.coaddName = config.differencer.coaddName
-config.differencer.getTemplate.warpType = "direct"
+# Use dataset's specific templates
+config.differencer.load(os.path.join(configDir, 'imageDifference.py'))
