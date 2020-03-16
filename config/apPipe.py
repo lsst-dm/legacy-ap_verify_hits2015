@@ -5,8 +5,7 @@ from lsst.meas.algorithms import LoadIndexedReferenceObjectsTask
 
 decamConfigDir = os.path.join(getPackageDir('obs_decam'), 'config')
 
-# Use Community Pipeline calibration products instead of the defaults
-config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcdCpIsr.py"))
+config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcd.py"))
 
 # Use gaia for astrometry (phot_g_mean for everything, as that is the broadest
 # band with the most depth)
