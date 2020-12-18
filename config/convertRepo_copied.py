@@ -8,4 +8,3 @@ for refcat in config.refCats:
 
 # Already stored in convertRepo_templates.py
 config.doRegisterInstrument = False
-config.doWriteCuratedCalibrations = False

@@ -4,4 +4,3 @@ config.datasetIgnorePatterns = ["raw", "*Coadd_skyMap", "ref_cat", "defects", "c
 
 # Already stored in convertRepo_templates.py
 config.doRegisterInstrument = False
-config.doWriteCuratedCalibrations = False
