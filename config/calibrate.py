@@ -21,9 +21,10 @@ config.connections.photoRefCat = "panstarrs"
 config.photoRefObjLoader.ref_dataset_name = config.connections.photoRefCat
 config.photoRefObjLoader.filterMap = {
     "u": "g",
-    "g": "g",
-    "r": "r",
-    "i": "i",
-    "z": "z",
-    "y": "y",
+    # TODO: workaround for DM-29186
+    # "g": "g",
+    # "r": "r",
+    # "i": "i",
+    # "z": "z",
+    # "y": "y",
     "VR": "g"}
