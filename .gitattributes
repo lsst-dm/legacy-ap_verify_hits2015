@@ -7,3 +7,7 @@
 preloaded/calib/DECam/cpBias !filter !diff !merge
 preloaded/calib/DECam/cpFlat !filter !diff !merge
 preloaded/templates/ !filter !diff !merge
+
+# Must be updated any time Gen 3 repository is updated, but most changes
+# are not human-meaningful.
+config/export.yaml linguist-generated=true
