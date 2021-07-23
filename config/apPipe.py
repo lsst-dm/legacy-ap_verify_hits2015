@@ -7,6 +7,9 @@ decamConfigDir = os.path.join(getPackageDir('obs_decam'), 'config')
 
 config.ccdProcessor.load(os.path.join(decamConfigDir, "processCcd.py"))
 
+# Use CP calibrations
+config.ccdProcessor.isr.load(os.path.join(configDir, 'isr.py'))
+
 # Use dataset's reference catalogs
 config.ccdProcessor.calibrate.load(os.path.join(configDir, 'calibrate.py'))
 
