@@ -1,0 +1,129 @@
+description: Instrumented Alert Production pipeline specialized for CI-HiTS-2015
+#
+# This pipeline delegates to per-task config files to ensure consistency with Gen 2.
+# The config files can be merged into this once ap_verify no longer supports Gen 2.
+#
+# This pipeline does not depend on the local ApVerify.yaml, because the definition
+# of the primary ApVerifyWithFakes.yaml is more likely to change than the
+# data-specific overrides, and importing both pipelines can't merge changes to
+# the same task.
+
+imports:
+  - location: $AP_VERIFY_DIR/pipelines/DarkEnergyCamera/ApVerifyWithFakes.yaml
+tasks:
+  isr:
+    class: lsst.ip.isr.IsrTask
+    config:
+      # Ignore missing calibrations
+      file: $AP_VERIFY_HITS2015_DIR/config/isr.py
+  calibrate:
+    class: lsst.pipe.tasks.calibrate.CalibrateTask
+    config:
+      # Use dataset's reference catalogs
+      file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
+  coaddFakes:
+    class: lsst.pipe.tasks.insertFakes.InsertFakesTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.image: deepCoadd
+      connections.fakeCat: fakes_fakeSourceCat
+      connections.imageWithFakes: fakes_deepCoadd
+      # TODO: end DM-30210 workaround
+  visitFakes:
+    class: lsst.pipe.tasks.processCcdWithFakes.ProcessCcdWithVariableFakesTask
+    config:
+      connections.coaddName: deep
+      coaddName: deep
+      python: |
+        # Use dataset's reference catalogs
+        import os.path
+        from lsst.utils import getPackageDir
+        config.calibrate.load(os.path.join(getPackageDir("ap_verify_hits2015"), "config", "calibrate.py"))
+  imageDifferenceNoFakes:
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    config:
+      # Use dataset's specific templates
+      file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
+  imageDifference:
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    config:
+      # Use dataset's specific templates
+      file: $AP_VERIFY_HITS2015_DIR/config/imageDifferenceWithFakes.py
+  transformDiaSrcCat:
+    class: lsst.ap.association.TransformDiaSourceCatalogTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/transformDiaSrcCatWithFakes.py
+  diaPipe:
+    class: lsst.ap.association.DiaPipelineTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/diaPipeWithFakes.py
+  matchFakes:
+    class: lsst.pipe.tasks.matchFakes.MatchVariableFakesTask
+    config:
+      # Gen 3 only, so no need for a config file
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.fakeCat: fakes_fakeSourceCat
+      connections.diffIm: fakes_deepDiff_differenceExp
+      connections.associatedDiaSources: fakes_deepDiff_assocDiaSrc
+      connections.matchedDiaSources: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCompletenessMag20t22:
+    class: lsst.ap.pipe.metrics.ApFakesCompletenessMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCompletenessMag22t24:
+    class: lsst.ap.pipe.metrics.ApFakesCompletenessMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCompletenessMag24t26:
+    class: lsst.ap.pipe.metrics.ApFakesCompletenessMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCountMag20t22:
+    class: lsst.ap.pipe.metrics.ApFakesCountMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCountMag22t24:
+    class: lsst.ap.pipe.metrics.ApFakesCountMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCountMag24t26:
+    class: lsst.ap.pipe.metrics.ApFakesCountMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
+  apFakesCount:
+    class: lsst.ap.pipe.metrics.ApFakesCountMetricTask
+    config:
+      connections.coaddName: deep
+      # TODO: redundant connection definitions workaround for DM-30210
+      connections.fakesType: fakes_
+      connections.matchedFakes: fakes_deepDiff_matchDiaSrc
+      # TODO: end DM-30210 workaround
