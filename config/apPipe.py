@@ -15,3 +15,5 @@ config.ccdProcessor.calibrate.load(os.path.join(configDir, 'calibrate.py'))
 
 # Use dataset's specific templates
 config.differencer.load(os.path.join(configDir, 'imageDifference.py'))
+config.transformDiaSrcCat.load(os.path.join(configDir, 'transformDiaSrcCat.py'))
+config.diaPipe.load(os.path.join(configDir, 'diaPipe.py'))

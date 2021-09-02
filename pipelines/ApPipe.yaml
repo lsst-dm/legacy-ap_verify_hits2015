@@ -1,0 +1,40 @@
+description: End to end Alert Production pipeline specialized for HiTS-2015
+#
+# NOTES
+# Remember to run make_apdb.py and use the same configs for diaPipe
+# READ_UNCOMMITTED is required for sqlite APDBs, i.e.,
+# -c diaPipe:apdb.isolation_level: 'READ_UNCOMMITTED'
+# A db_url is always required, e.g.,
+# -c diaPipe:apdb.db_url: 'sqlite:////project/user/association.db'
+# Option to specify connection_timeout for sqlite APDBs encountering lock errors, i.e.,
+# -c diaPipe:apdb.connection_timeout: 240
+#
+# This pipeline delegates to per-task config files to ensure consistency with Gen 2.
+# The config files can be merged into this once ap_verify no longer supports Gen 2.
+
+imports:
+  - location: $AP_PIPE_DIR/pipelines/DarkEnergyCamera/ApPipe.yaml
+tasks:
+  isr:
+    class: lsst.ip.isr.IsrTask
+    config:
+      # Ignore missing calibrations
+      file: $AP_VERIFY_HITS2015_DIR/config/isr.py
+  calibrate:
+    class: lsst.pipe.tasks.calibrate.CalibrateTask
+    config:
+      # Use dataset's reference catalogs
+      file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
+  imageDifference:
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    config:
+      # Use dataset's specific templates
+      file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
+  transformDiaSrcCat:
+    class: lsst.ap.association.TransformDiaSourceCatalogTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/transformDiaSrcCat.py
+  diaPipe:
+    class: lsst.ap.association.DiaPipelineTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/diaPipe.py
