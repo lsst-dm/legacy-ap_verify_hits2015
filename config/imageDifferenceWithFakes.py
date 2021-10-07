@@ -12,8 +12,6 @@ config.connections.coaddName = "deep"
 config.coaddName = config.connections.coaddName
 config.getTemplate.coaddName = config.connections.coaddName
 
-config.getTemplate.warpType = "direct"
-
 # TODO: redundant connection definitions workaround for DM-30210
 config.connections.exposure = "fakes_calexp"
 config.connections.coaddExposures = "fakes_deepCoadd"
