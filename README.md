@@ -11,9 +11,6 @@ Contains DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, an
 
 This repository contains over 80 DECam images with 60+ CCDs each! If you want a smaller dataset to practice running `ap_verify`, consider `ap_verify_ci_hits2015` or `ap_verify_ci_cosmos_pdr2`.
 
-At present, this repository can only be used for Gen 2 processing.
-Support for the new Gen 3 pipeline framework is expected in the future.
-
 ---
 
 Relevant Files and Directories

@@ -1,0 +1,76 @@
+description: Instrumented Alert Production pipeline specialized for CI-HiTS-2015
+#
+# This pipeline delegates to per-task config files to ensure consistency with Gen 2.
+# The config files can be merged into this once ap_verify no longer supports Gen 2.
+#
+# This pipeline does not depend on the local ApVerify.yaml, because the definition
+# of the primary ApVerifyWithFakes.yaml is more likely to change than the
+# data-specific overrides, and importing both pipelines can't merge changes to
+# the same task.
+
+imports:
+  - location: $AP_VERIFY_DIR/pipelines/DarkEnergyCamera/ApVerifyWithFakes.yaml
+parameters:
+  coaddName: deep
+  fakesType: fakes_
+  # TODO: redundant connection definitions workaround for DM-30210
+  template: deepCoadd
+  diaSrcCat: deepDiff_diaSrc
+  diaSrcSchema: deepDiff_diaSrc_schema
+  diaSrcParquet: deepDiff_diaSrcTable
+  diff: deepDiff_differenceExp
+  diffScore: deepDiff_scoreExp
+  diffWarp: deepDiff_warpedExp
+  diffMatch: deepDiff_matchedExp
+  assocSrc: deepDiff_assocDiaSrc
+  fakesInput: fakes_fakeSourceCat
+  fakesPvi: fakes_calexp
+  fakesTemplate: fakes_deepCoadd
+  fakesDcrTemplate: fakes_dcrCoadd
+  fakesDiaSrcCat: fakes_deepDiff_diaSrc
+  fakesDiaSrcSchema: fakes_deepDiff_diaSrc_schema
+  fakesDiaSrcParquet: fakes_deepDiff_diaSrcTable
+  fakesDiff: fakes_deepDiff_differenceExp
+  fakesDiffScore: fakes_deepDiff_scoreExp
+  fakesDiffWarp: fakes_deepDiff_warpedExp
+  fakesDiffMatch: fakes_deepDiff_matchedExp
+  fakesAssocSrc: fakes_deepDiff_assocDiaSrc
+  fakesMatchedSrc: fakes_deepDiff_matchDiaSrc
+  # TODO: end DM-30210 workaround
+tasks:
+  isr:
+    class: lsst.ip.isr.IsrTask
+    config:
+      # Ignore missing calibrations
+      file: $AP_VERIFY_HITS2015_DIR/config/isr.py
+  calibrate:
+    class: lsst.pipe.tasks.calibrate.CalibrateTask
+    config:
+      # Use dataset's reference catalogs
+      file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
+  visitFakes:
+    class: lsst.pipe.tasks.processCcdWithFakes.ProcessCcdWithVariableFakesTask
+    config:
+      python: |
+        # Use dataset's reference catalogs
+        import os.path
+        from lsst.utils import getPackageDir
+        config.calibrate.load(os.path.join(getPackageDir("ap_verify_hits2015"), "config", "calibrate.py"))
+  imageDifferenceNoFakes:
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    config:
+      # Use dataset's specific templates
+      file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
+  imageDifference:
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    config:
+      # Use dataset's specific templates
+      file: $AP_VERIFY_HITS2015_DIR/config/imageDifferenceWithFakes.py
+  transformDiaSrcCat:
+    class: lsst.ap.association.TransformDiaSourceCatalogTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/transformDiaSrcCatWithFakes.py
+  diaPipe:
+    class: lsst.ap.association.DiaPipelineTask
+    config:
+      file: $AP_VERIFY_HITS2015_DIR/config/diaPipeWithFakes.py
