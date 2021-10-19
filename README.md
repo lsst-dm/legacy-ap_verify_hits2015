@@ -11,6 +11,13 @@ Contains DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, an
 
 This repository contains over 80 DECam images with 60+ CCDs each! If you want a smaller dataset to practice running `ap_verify`, consider `ap_verify_ci_hits2015` or `ap_verify_ci_cosmos_pdr2`.
 
+Due to problems with detectors 2 and 61, this repository cannot process these detectors.
+Because of this, you must specify this data-query argument when running ap_verify on this data (see [DM-32265](https://jira.lsstcorp.org/browse/DM-32265)):
+
+```
+--data-query "detector not in (2, 61)"
+```
+
 ---
 
 Relevant Files and Directories
