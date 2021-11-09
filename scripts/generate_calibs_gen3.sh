@@ -34,6 +34,58 @@
 set -e
 
 ########################################
+# Raw calibs to process
+
+# Syntax matters -- use
+#     https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/queries.html#dimension-expressions
+#     syntax, with no trailing comma.
+
+declare -A EXPOSURES_BIAS
+EXPOSURES_BIAS[20150216]='410714, 410715, 410716, 410717, 410718, 410719, 410720, 410721, 410722,
+                          410723, 410724'
+EXPOSURES_BIAS[20150217]='411102, 411103, 411104, 411105, 411106, 411107, 411108, 411109, 411110,
+                          411111, 411112'
+EXPOSURES_BIAS[20150218]='411502, 411503, 411504, 411505, 411506, 411507, 411508, 411509, 411510,
+                          411511, 411512'
+EXPOSURES_BIAS[20150219]='411904, 411905, 411906, 411907, 411908, 411909, 411910, 411911, 411912,
+                          411913, 411914'
+EXPOSURES_BIAS[20150220]='412096, 412097, 412098, 412099, 412100, 412101, 412102, 412103, 412104,
+                          412105, 412106'
+EXPOSURES_BIAS[20150221]='412355, 412356, 412357, 412358, 412359, 412360, 412361, 412362, 412363,
+                          412364, 412365'
+EXPOSURES_BIAS[20150223]='413448, 413449, 413450, 413451, 413452, 413453, 413454, 413455, 413456,
+                          413457, 413458'
+EXPOSURES_BIAS[20150226]='415136, 415137, 415138, 415139, 415140, 415141, 415142, 415143, 415144,
+                          415145, 415146'
+EXPOSURES_BIAS[20150313]='421350, 421351, 421352, 421353, 421354, 421355, 421356, 421357, 421358,
+                          421359, 421360'
+
+declare -A EXPOSURES_FLAT_g_c0001
+EXPOSURES_FLAT_g_c0001[20150216]='410790, 410791, 410792, 410793, 410794, 410795, 410796, 410797,
+                                  410798, 410799, 410800'
+EXPOSURES_FLAT_g_c0001[20150217]='411178, 411179, 411180, 411181, 411182, 411183, 411184, 411185,
+                                  411186, 411187, 411188'
+EXPOSURES_FLAT_g_c0001[20150218]='411578, 411579, 411580, 411581, 411582, 411583, 411584, 411585,
+                                  411586, 411587, 411588'
+EXPOSURES_FLAT_g_c0001[20150219]='411980, 411981, 411982, 411983, 411984, 411985, 411986, 411987,
+                                  411988, 411989, 411990'
+EXPOSURES_FLAT_g_c0001[20150220]='412172, 412173, 412174, 412175, 412176, 412177, 412178, 412179,
+                                  412180, 412181, 412182'
+EXPOSURES_FLAT_g_c0001[20150221]='412431, 412432, 412433, 412434, 412435, 412436, 412437, 412438,
+                                  412439, 412440, 412441'
+EXPOSURES_FLAT_g_c0001[20150223]='413524, 413525, 413526, 413527, 413528, 413529, 413530, 413531,
+                                  413532, 413533, 413534'
+EXPOSURES_FLAT_g_c0001[20150226]='415212, 415213, 415214, 415215, 415216, 415217, 415218, 415219,
+                                  415220, 415221, 415222'
+EXPOSURES_FLAT_g_c0001[20150313]='421426, 421427, 421428, 421429, 421430, 421431, 421432, 421433,
+                                  421434, 421435, 421436'
+
+# from https://stackoverflow.com/questions/1527049/how-can-i-join-elements-of-an-array-in-bash
+join_by() { local IFS="$1"; shift; echo "$*"; }
+EXPOSURES_CROSSTALK=`join_by , "${EXPOSURES_FLAT_g_c0001[@]}"`
+
+
+########################################
 # Command-line options
 
 print_error() {
@@ -72,28 +124,20 @@ fi
 ########################################
 # Prepare crosstalk sources (overscan subtraction)
 
-pipetask run -j 12 -d "exposure IN (410790, 410791, 410792, 410793, 410794, 410795, 410796, 410797, 410798, 410799, 410800,411178, 411179, 411180, 411181, 411182, 411183, 411184, 411185, 411186, 411187, 411188, 411578, 411579, 411580, 411581, 411582, 411583, 411584, 411585, 411586, 411587, 411588, 411980, 411981, 411982, 411983, 411984, 411985, 411986, 411987, 411988, 411989, 411990, 412172, 412173, 412174, 412175, 412176, 412177, 412178, 412179, 412180, 412181, 412182, 412431, 412432, 412433, 412434, 412435, 412436, 412437, 412438, 412439, 412440, 412441, 413524, 413525, 413526, 413527, 413528, 413529, 413530, 413531, 413532, 413533, 413534, 415212, 415213, 415214, 415215, 415216, 415217, 415218, 415219, 415220, 415221, 415222, 421426, 421427, 421428, 421429, 421430, 421431, 421432, 421433, 421434, 421435, 421436) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-crosstalk-sources -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/RunIsrForCrosstalkSources.yaml -c overscan:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN ($EXPOSURES_CROSSTALK) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-crosstalk-sources -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/RunIsrForCrosstalkSources.yaml -c overscan:overscan.fitType='MEDIAN_PER_ROW'
 
 ########################################
 # Build bias frames
 
-pipetask run -j 12 -d "exposure IN (410714, 410715, 410716, 410717, 410718, 410719, 410720, 410721, 410722, 410723, 410724) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150216 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (411102, 411103, 411104, 411105, 411106, 411107, 411108, 411109, 411110, 411111, 411112) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150217 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (411502, 411503, 411504, 411505, 411506, 411507, 411508, 411509, 411510, 411511, 411512) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150218 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (411904, 411905, 411906, 411907, 411908, 411909, 411910, 411911, 411912, 411913, 411914) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150219 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (412096, 412097, 412098, 412099, 412100, 412101, 412102, 412103, 412104, 412105, 412106) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150220 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (412355, 412356, 412357, 412358, 412359, 412360, 412361, 412362, 412363, 412364, 412365) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150221 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (413448, 413449, 413450, 413451, 413452, 413453, 413454, 413455, 413456, 413457, 413458) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150223 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (415136, 415137, 415138, 415139, 415140, 415141, 415142, 415143, 415144, 415145, 415146) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150226 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-
-pipetask run -j 12 -d "exposure IN (421350, 421351, 421352, 421353, 421354, 421355, 421356, 421357, 421358, 421359, 421360) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150313 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150216]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150216 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150217]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150217 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150218]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150218 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150219]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150219 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150220]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150220 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150221]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150221 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150223]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150223 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150226]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150226 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150313]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150313 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
 
 ########################################
 # Certify bias frames
@@ -111,23 +155,15 @@ butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-201
 ########################################
 # Build flat frames
 
-pipetask run -j 12 -d "exposure IN (410790, 410791, 410792, 410793, 410794, 410795, 410796, 410797, 410798, 410799, 410800) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150216 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (411178, 411179, 411180, 411181, 411182, 411183, 411184, 411185, 411186, 411187, 411188) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150217 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (411578, 411579, 411580, 411581, 411582, 411583, 411584, 411585, 411586, 411587, 411588) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150218 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (411980, 411981, 411982, 411983, 411984, 411985, 411986, 411987, 411988, 411989, 411990) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150219 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (412172, 412173, 412174, 412175, 412176, 412177, 412178, 412179, 412180, 412181, 412182) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150220 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (412431, 412432, 412433, 412434, 412435, 412436, 412437, 412438, 412439, 412440, 412441) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150221 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (413524, 413525, 413526, 413527, 413528, 413529, 413530, 413531, 413532, 413533, 413534) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150223 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (415212, 415213, 415214, 415215, 415216, 415217, 415218, 415219, 415220, 415221, 415222) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150226 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-pipetask run -j 12 -d "exposure IN (421426, 421427, 421428, 421429, 421430, 421431, 421432, 421433, 421434, 421435, 421436) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150313 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150216]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150216 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150217]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150217 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150218]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150218 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150219]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150219 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150220]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150220 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150221]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150221 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150223]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150223 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150226]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150226 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150313]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150313 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
 
 ########################################
 # Certify flat frames
