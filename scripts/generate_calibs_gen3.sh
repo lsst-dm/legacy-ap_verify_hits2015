@@ -20,7 +20,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Script for automatically generating calibs for this dataset.
+# Script for automatically generating calibs for this dataset. It takes roughly
+# 6 hours to run on lsst-devl.
 # Running this script allows for calibs to incorporate pipeline improvements.
 # It makes no attempt to update the set of input exposures or their validity
 # ranges; they are hard-coded into the file.
