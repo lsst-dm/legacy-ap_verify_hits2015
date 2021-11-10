@@ -60,6 +60,17 @@ EXPOSURES_BIAS[20150226]='415136, 415137, 415138, 415139, 415140, 415141, 415142
 EXPOSURES_BIAS[20150313]='421350, 421351, 421352, 421353, 421354, 421355, 421356, 421357, 421358,
                           421359, 421360'
 
+declare -A VALIDITIES_BIAS
+VALIDITIES_BIAS[20150216]='--begin-date 2015-02-01T00:00:00 --end-date 2015-02-16T23:59:59'
+VALIDITIES_BIAS[20150217]='--begin-date 2015-02-17T00:00:00 --end-date 2015-02-17T23:59:59'
+VALIDITIES_BIAS[20150218]='--begin-date 2015-02-18T00:00:00 --end-date 2015-02-18T23:59:59'
+VALIDITIES_BIAS[20150219]='--begin-date 2015-02-19T00:00:00 --end-date 2015-02-19T23:59:59'
+VALIDITIES_BIAS[20150220]='--begin-date 2015-02-20T00:00:00 --end-date 2015-02-20T23:59:59'
+VALIDITIES_BIAS[20150221]='--begin-date 2015-02-21T00:00:00 --end-date 2015-02-22T23:59:59'
+VALIDITIES_BIAS[20150223]='--begin-date 2015-02-23T00:00:00 --end-date 2015-02-24T23:59:59'
+VALIDITIES_BIAS[20150226]='--begin-date 2015-02-25T00:00:00 --end-date 2015-03-05T23:59:59'
+VALIDITIES_BIAS[20150313]='--begin-date 2015-03-06T00:00:00 --end-date 2015-03-15T23:59:59'
+
 declare -A EXPOSURES_FLAT_g_c0001
 EXPOSURES_FLAT_g_c0001[20150216]='410790, 410791, 410792, 410793, 410794, 410795, 410796, 410797,
                                   410798, 410799, 410800'
@@ -79,6 +90,17 @@ EXPOSURES_FLAT_g_c0001[20150226]='415212, 415213, 415214, 415215, 415216, 415217
                                   415220, 415221, 415222'
 EXPOSURES_FLAT_g_c0001[20150313]='421426, 421427, 421428, 421429, 421430, 421431, 421432, 421433,
                                   421434, 421435, 421436'
+
+declare -A VALIDITIES_FLAT_g_c0001
+VALIDITIES_FLAT_g_c0001[20150216]='--begin-date 2015-02-01T00:00:00 --end-date 2015-02-16T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150217]='--begin-date 2015-02-17T00:00:00 --end-date 2015-02-17T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150218]='--begin-date 2015-02-18T00:00:00 --end-date 2015-02-18T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150219]='--begin-date 2015-02-19T00:00:00 --end-date 2015-02-19T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150220]='--begin-date 2015-02-20T00:00:00 --end-date 2015-02-20T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150221]='--begin-date 2015-02-21T00:00:00 --end-date 2015-02-22T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150223]='--begin-date 2015-02-23T00:00:00 --end-date 2015-02-24T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150226]='--begin-date 2015-02-25T00:00:00 --end-date 2015-03-05T23:59:59'
+VALIDITIES_FLAT_g_c0001[20150313]='--begin-date 2015-03-06T00:00:00 --end-date 2015-03-15T23:59:59'
 
 # from https://stackoverflow.com/questions/1527049/how-can-i-join-elements-of-an-array-in-bash
 join_by() { local IFS="$1"; shift; echo "$*"; }
@@ -124,59 +146,33 @@ fi
 ########################################
 # Prepare crosstalk sources (overscan subtraction)
 
-pipetask run -j 12 -d "exposure IN ($EXPOSURES_CROSSTALK) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-crosstalk-sources -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/RunIsrForCrosstalkSources.yaml -c overscan:overscan.fitType='MEDIAN_PER_ROW'
+pipetask run -j 12 -d "exposure IN ($EXPOSURES_CROSSTALK) AND instrument='DECam'" \
+    -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-crosstalk-sources \
+    -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/RunIsrForCrosstalkSources.yaml \
+    -c overscan:overscan.fitType='MEDIAN_PER_ROW'
 
 ########################################
-# Build bias frames
+# Build and certify bias frames
 
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150216]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150216 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150217]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150217 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150218]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150218 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150219]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150219 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150220]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150220 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150221]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150221 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150223]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150223 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150226]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150226 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[20150313]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-20150313 -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+for date in ${!EXPOSURES_BIAS[*]}; do
+    pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[${date}]}) AND instrument='DECam'" \
+        -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-bias-construction-${date} \
+        -p $CP_PIPE_DIR/pipelines/cpBias.yaml -c isr:overscan.fitType='MEDIAN_PER_ROW'
+    butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-${date} \
+        ${COLLECT_ROOT}-calib bias ${VALIDITIES_BIAS[${date}]}
+done
 
 ########################################
-# Certify bias frames
+# Build and certify flat frames
 
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150216 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-01T00:00:00 --end-date 2015-02-16T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150217 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-17T00:00:00 --end-date 2015-02-17T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150218 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-18T00:00:00 --end-date 2015-02-18T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150219 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-19T00:00:00 --end-date 2015-02-19T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150220 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-20T00:00:00 --end-date 2015-02-20T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150221 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-21T00:00:00 --end-date 2015-02-22T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150223 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-23T00:00:00 --end-date 2015-02-24T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150226 ${COLLECT_ROOT}-calib bias --begin-date 2015-02-25T00:00:00 --end-date 2015-03-05T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-bias-construction-20150313 ${COLLECT_ROOT}-calib bias --begin-date 2015-03-06T00:00:00 --end-date 2015-03-15T23:59:59
-
-########################################
-# Build flat frames
-
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150216]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150216 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150217]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150217 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150218]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150218 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150219]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150219 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150220]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150220 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150221]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150221 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150223]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150223 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150226]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150226 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[20150313]}) AND instrument='DECam'" -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources -o ${COLLECT_ROOT}-flat-construction-20150313 -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
-
-########################################
-# Certify flat frames
-
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150216 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-01T00:00:00 --end-date 2015-02-16T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150217 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-17T00:00:00 --end-date 2015-02-17T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150218 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-18T00:00:00 --end-date 2015-02-18T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150219 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-19T00:00:00 --end-date 2015-02-19T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150220 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-20T00:00:00 --end-date 2015-02-20T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150221 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-21T00:00:00 --end-date 2015-02-22T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150223 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-23T00:00:00 --end-date 2015-02-24T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150226 ${COLLECT_ROOT}-calib flat --begin-date 2015-02-25T00:00:00 --end-date 2015-03-05T23:59:59
-butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-20150313 ${COLLECT_ROOT}-calib flat --begin-date 2015-03-06T00:00:00 --end-date 2015-03-15T23:59:59
+for date in ${!EXPOSURES_FLAT_g_c0001[*]}; do
+    pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[${date}]}) AND instrument='DECam'" \
+        -b ${BUTLER_REPO} -i DECam/defaults,${COLLECT_ROOT}-calib,${COLLECT_ROOT}-crosstalk-sources \
+        -o ${COLLECT_ROOT}-flat-construction-${date} \
+        -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/cpFlat.yaml -c cpFlatNorm:level='AMP'
+    butler certify-calibrations ${BUTLER_REPO} ${COLLECT_ROOT}-flat-construction-${date} \
+        ${COLLECT_ROOT}-calib flat ${VALIDITIES_FLAT_g_c0001[${date}]}
+done
 
 
 ########################################
