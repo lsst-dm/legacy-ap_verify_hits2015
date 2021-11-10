@@ -146,6 +146,8 @@ fi
 ########################################
 # Prepare crosstalk sources (overscan subtraction)
 
+# TODO: overscan.fitType override may be included in cp_pipe on DM-30651
+
 pipetask run -j 12 -d "exposure IN ($EXPOSURES_CROSSTALK) AND instrument='DECam'" \
     -b ${BUTLER_REPO} -i DECam/defaults -o ${COLLECT_ROOT}-crosstalk-sources \
     -p $CP_PIPE_DIR/pipelines/DarkEnergyCamera/RunIsrForCrosstalkSources.yaml \
@@ -153,6 +155,8 @@ pipetask run -j 12 -d "exposure IN ($EXPOSURES_CROSSTALK) AND instrument='DECam'
 
 ########################################
 # Build and certify bias frames
+
+# TODO: overscan.fitType override may be included in cp_pipe on DM-30651
 
 for date in ${!EXPOSURES_BIAS[*]}; do
     pipetask run -j 12 -d "exposure IN (${EXPOSURES_BIAS[${date}]}) AND instrument='DECam'" \
@@ -164,6 +168,8 @@ done
 
 ########################################
 # Build and certify flat frames
+
+# TODO: cpFlatNorm:level override may be included in cp_pipe on DM-30651
 
 for date in ${!EXPOSURES_FLAT_g_c0001[*]}; do
     pipetask run -j 12 -d "exposure IN (${EXPOSURES_FLAT_g_c0001[${date}]}) AND instrument='DECam'" \
