@@ -26,6 +26,7 @@ Running this script allows for updates to the refcats to be incorporated
 into the dataset.
 """
 
+import argparse
 import logging
 import sys
 
@@ -54,6 +55,21 @@ FIELD_RADIUS = 2.0  # degrees
 REFCATS = {"gaia_dr2_20200414": "gaia",
            "ps1_pv3_3pi_20170110": "panstarrs",
            }
+
+
+########################################
+# Command-line options
+
+def _make_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-b", dest="src_dir", default="/repo/main",
+                        help="Refcat source Butler repo, defaults to '/repo/main'.")
+    parser.add_argument("-i", dest="src_collection", default="refcats",
+                        help="Refcat source collection, defaults to 'refcats'.")
+    return parser
+
+
+args = _make_parser().parse_args()
 
 
 ########################################
@@ -125,7 +141,6 @@ id_ranges = [_make_range(start, end) for (start, end) in shards]
 ########################################
 # Transfer shards
 
-SRC_DIR = "/repo/main"
 DEST_DIR = "${AP_VERIFY_HITS2015_DIR}/preloaded/"
 STD_REFCAT = "refcats"
 DEST_RUN = "refcats/imported"
@@ -149,7 +164,7 @@ def _rename_dataset_type(type, name):
     return DatasetType(name, type.dimensions, type.storageClass, type.parentStorageClass)
 
 
-src_repo = Butler(SRC_DIR, collections=STD_REFCAT, writeable=False)
+src_repo = Butler(args.src_dir, collections=args.src_collection, writeable=False)
 dest_repo = Butler(DEST_DIR, run=DEST_RUN, writeable=True)
 
 
@@ -187,7 +202,7 @@ for src_cat, dest_cat in REFCATS.items():
     dest_repo.registry.registerDatasetType(dest_type)
 dest_repo.registry.refresh()
 
-logging.info("Searching for refcats in %s:%s...", SRC_DIR, STD_REFCAT)
+logging.info("Searching for refcats in %s:%s...", args.src_dir, args.src_collection)
 query = f"htm{HTM_LEVEL} in ({','.join(id_ranges)})"
 datasets = []
 for src_ref in src_repo.registry.queryDatasets(REFCATS.keys(), where=query, findFirst=True):
