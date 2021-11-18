@@ -33,7 +33,7 @@ from astropy.coordinates import SkyCoord
 
 import lsst.log
 import lsst.sphgeom
-from lsst.daf.butler import Butler, CollectionType, FileDataset
+from lsst.daf.butler import Butler, CollectionType, DatasetRef, DatasetType, FileDataset
 
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -50,9 +50,10 @@ FIELDS = [SkyCoord("10h00m28.800s", "+02d12m36.00s"),  # field 26 (2014:04)
           ]
 FIELD_RADIUS = 2.0  # degrees
 
-REFCATS = ["gaia_dr2_20200414",
-           "ps1_pv3_3pi_20170110",
-           ]
+# Key is catalog name in source repo, value is name in ap_verify_hits2015.
+REFCATS = {"gaia_dr2_20200414": "gaia",
+           "ps1_pv3_3pi_20170110": "panstarrs",
+           }
 
 
 ########################################
@@ -129,6 +130,25 @@ DEST_DIR = "${AP_VERIFY_HITS2015_DIR}/preloaded/"
 STD_REFCAT = "refcats"
 DEST_RUN = "refcats/imported"
 
+
+def _rename_dataset_type(type, name):
+    """Create a DatasetType that differs from an existing one in name only.
+
+    Parameters
+    ---------
+    type : `lsst.daf.butler.DatasetType`
+        The type to rename.
+    name : `str`
+        The new name to adopt.
+
+    Returns
+    -------
+    new_type : `lsst.daf.butler.DatasetType`
+        The new DatasetType.
+    """
+    return DatasetType(name, type.dimensions, type.storageClass, type.parentStorageClass)
+
+
 src_repo = Butler(SRC_DIR, collections=STD_REFCAT, writeable=False)
 dest_repo = Butler(DEST_DIR, run=DEST_RUN, writeable=True)
 
@@ -161,17 +181,22 @@ def _remove_refcat_run(butler, run):
 logging.info("Preparing destination repository %s...", DEST_DIR)
 _remove_refcat_run(dest_repo, DEST_RUN)
 dest_repo.registry.registerCollection(DEST_RUN, CollectionType.RUN)
-for refcat in REFCATS:
-    dest_repo.registry.registerDatasetType(src_repo.registry.getDatasetType(refcat))
+for src_cat, dest_cat in REFCATS.items():
+    src_type = src_repo.registry.getDatasetType(src_cat)
+    dest_type = _rename_dataset_type(src_type, dest_cat)
+    dest_repo.registry.registerDatasetType(dest_type)
 dest_repo.registry.refresh()
 
 logging.info("Searching for refcats in %s:%s...", SRC_DIR, STD_REFCAT)
 query = f"htm{HTM_LEVEL} in ({','.join(id_ranges)})"
-datasets = [FileDataset(path=src_repo.getURI(ref), refs=ref) for ref
-            in src_repo.registry.queryDatasets(REFCATS, where=query, findFirst=True)]
+datasets = []
+for src_ref in src_repo.registry.queryDatasets(REFCATS.keys(), where=query, findFirst=True):
+    src_type = src_ref.datasetType
+    dest_type = _rename_dataset_type(src_type, REFCATS[src_type.name])
+    dest_ref = DatasetRef(dest_type, src_ref.dataId)
+    datasets.append(FileDataset(path=src_repo.getURI(src_ref), refs=dest_ref))
 
 logging.info("Copying refcats...")
-dest_repo.ingest(*datasets,
-                 transfer="copy")
+dest_repo.ingest(*datasets, transfer="copy")
 
 logging.info("%d refcat shards copied to %s:%s", len(datasets), DEST_DIR, DEST_RUN)
