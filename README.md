@@ -4,7 +4,7 @@ Data from HiTS (2015) to verify the performance of alert production in the LSST 
 
 This and other `ap_verify` "datasets" are based on [ap_verify_dataset_template](https://github.com/lsst-dm/ap_verify_dataset_template).
 
-Contains DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
+Contains g-band DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
 
 ---
 **Note**
