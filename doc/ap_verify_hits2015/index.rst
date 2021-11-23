@@ -24,23 +24,15 @@ The HiTS survey has a high cadence compared to other DECam datasets, so this dat
 Dataset contents
 ================
 
-This package provides complete data for three fields from the 2015 `HiTS`_ survey.
+This package provides complete g-band data for three fields from the 2015 `HiTS`_ survey.
 It contains:
 
-* raw images for three fields, in g band:
-    * 28 visits to ``Blind15A_26``: visit IDs 410915, 410971, 411021, 411055, 411255, 411305, 411355, 411406, 411456, 411657, 411707, 411758, 411808, 411858, 412060, 412250, 412307, 412504, 412554, 412604, 412654, 412704, 413635, 413680, 415314, 415364, 419791, 421590
-    * 28 visits to ``Blind15A_40``: visit IDs 410929, 410985, 411035, 411069, 411269, 411319, 411369, 411420, 411470, 411671, 411721, 411772, 411822, 411872, 412074, 412264, 412321, 412518, 412568, 412618, 412668, 412718, 413649, 413694, 415328, 415378, 419802, 421604
-    * 28 visits to ``Blind15A_42``: visit IDs 410931, 410987, 411037, 411071, 411271, 411321, 411371, 411422, 411472, 411673, 411724, 411774, 411824, 411874, 412076, 412266, 412324, 412520, 412570, 412620, 412670, 412720, 413651, 413696, 415330, 415380, 419804, 421606
-* raw images for three fields, in r band:
-    * 5 visits to ``Blind15A_26``: visit IDs 410865, 413585, 415274, 419383, 421552
-    * 7 visits to ``Blind15A_40``: visit IDs 410879, 411722, 412322, 413599, 415282, 419394, 421563
-    * 5 visits to ``Blind15A_42``: visit IDs 410881, 413601, 415284, 419396, 421565
-* raw images for three fields, in i band:
-    * 2 visits to ``Blind15A_26``: visit IDs 419418, 421500
-    * 2 visits to ``Blind15A_40``: visit IDs 419820, 421514
-    * 2 visits to ``Blind15A_42``: visit IDs 419822, 421516
-* biases (``zci``), flats (``fci``), and corresponding weight maps (``zcw``, ``fcw``) in all DECam bands (ugriz, Y, VR). [Note: weights are not currently used by ``ap_verify`` or ``ap_pipe``]
-* illumination corrections (``ici``) in g, r, and i band. [Note: illumcors are not currently used by ``ap_verify`` or ``ap_pipe``]
+* 28 visits to ``Blind15A_26``: visit IDs 410915, 410971, 411021, 411055, 411255, 411305, 411355, 411406, 411456, 411657, 411707, 411758, 411808, 411858, 412060, 412250, 412307, 412504, 412554, 412604, 412654, 412704, 413635, 413680, 415314, 415364, 419791, 421590
+* 28 visits to ``Blind15A_40``: visit IDs 410929, 410985, 411035, 411069, 411269, 411319, 411369, 411420, 411470, 411671, 411721, 411772, 411822, 411872, 412074, 412264, 412321, 412518, 412568, 412618, 412668, 412718, 413649, 413694, 415328, 415378, 419802, 421604
+* 28 visits to ``Blind15A_42``: visit IDs 410931, 410987, 411037, 411071, 411271, 411321, 411371, 411422, 411472, 411673, 411724, 411774, 411824, 411874, 412076, 412266, 412324, 412520, 412570, 412620, 412670, 412720, 413651, 413696, 415330, 415380, 419804, 421606
+* biases (``zci``) and flats (``fci``).
+* bias and flat weight maps (``zcw``, ``fcw``). [Note: weights are not currently used by ``ap_verify`` or ``ap_pipe``]
+* illumination corrections (``ici``). [Note: illumcors are not currently used by ``ap_verify`` or ``ap_pipe``]
 * reference catalogs for Gaia and Pan-STARRS1, covering the raw images' footprint.
 * image differencing templates coadded from HiTS 2014 data, covering the raw images' footprint.
 
