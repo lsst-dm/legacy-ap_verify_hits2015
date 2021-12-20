@@ -1,0 +1,12 @@
+description: Alert Production template building pipeline specialized for HiTS-2015
+# This pipeline assumes the working repo has raws, calibs, refcats, and a skymap,
+# and that you have already run the RunIsrForCrosstalkSources.yaml pipeline.
+
+imports:
+  - location: $AP_PIPE_DIR/pipelines/DarkEnergyCamera/ApTemplate.yaml
+parameters:
+  coaddName: deep
+  # TODO: redundant connection definitions workaround for DM-30210
+  selectedVisits: deepVisits
+  template: deepCoadd
+  # TODO: end DM-30210 workaround
