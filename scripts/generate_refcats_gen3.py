@@ -184,12 +184,12 @@ def _remove_refcat_run(butler, run):
             new_runs = list(refcat_runs)
             new_runs.remove(run)
             butler.registry.setCollectionChain(STD_REFCAT, new_runs)
-    except (lsst.daf.butler.MissingCollectionError, TypeError):
+    except (lsst.daf.butler.registry.MissingCollectionError, TypeError):
         pass  # No STD_REFCAT chain; nothing to do
 
     try:
         butler.removeRuns([run], unstore=True)
-    except lsst.daf.butler.MissingCollectionError:
+    except lsst.daf.butler.registry.MissingCollectionError:
         pass  # Already removed; nothing to do
 
 
