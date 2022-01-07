@@ -21,7 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Script for regenerating a complete Gen 3 repository in preloaded/.
-# It takes roughly 10 hours to run on lsst-devl.
+# It takes roughly 34 hours to run on lsst-devl.
 #
 # Example:
 # $ nohup generate_all_gen3.sh -c "u/me/DM-123456" &
