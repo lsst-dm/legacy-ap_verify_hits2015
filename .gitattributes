@@ -2,8 +2,3 @@
 *.gz filter=lfs diff=lfs merge=lfs -text
 *.fz filter=lfs diff=lfs merge=lfs -text
 *.sqlite3 filter=lfs diff=lfs merge=lfs -text
-
-# These look like fits files, but are really symbolic links
-preloaded/calib/DECam/cpBias !filter !diff !merge
-preloaded/calib/DECam/cpFlat !filter !diff !merge
-preloaded/templates/ !filter !diff !merge
