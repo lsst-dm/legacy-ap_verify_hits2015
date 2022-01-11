@@ -26,8 +26,10 @@ path                  | description
 :---------------------|:-----------------------------
 `raw`                 | Raw, compressed DECam fits images from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
 `config`              | Dataset-specific configs to help the Science Pipelines work with this dataset.
+`pipelines`           | Dataset-specific pipelines to run on this dataset.
 `dataIds.list`        | List of dataIds for use in running Tasks. Currently set to run all Ids.
 `preloaded`           | Starter Gen3 Butler repo containing a skymap, DECam Community Pipeline MasterCalibs from the 2015 HiTS campaign, deep g-band coadds for use as differencing templates, and Gaia and PS1 reference catalogs in HTM format for regions overlapping any visit in the dataset.
+`scripts`             | Scripts and data for generating this dataset.
 
 Git LFS
 -------
