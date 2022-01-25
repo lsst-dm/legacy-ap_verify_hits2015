@@ -57,12 +57,12 @@ tasks:
         from lsst.utils import getPackageDir
         config.calibrate.load(os.path.join(getPackageDir("ap_verify_hits2015"), "config", "calibrate.py"))
   imageDifferenceNoFakes:
-    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceFromTemplateTask
     config:
       # Use dataset's specific templates
       file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
   imageDifference:
-    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceFromTemplateTask
     config:
       # Use dataset's specific templates
       file: $AP_VERIFY_HITS2015_DIR/config/imageDifferenceWithFakes.py

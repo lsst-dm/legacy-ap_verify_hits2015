@@ -39,7 +39,7 @@ tasks:
       # Use dataset's reference catalogs
       file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
   imageDifference:
-    class: lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+    class: lsst.pipe.tasks.imageDifference.ImageDifferenceFromTemplateTask
     config:
       # Use dataset's specific templates
       file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
