@@ -1,7 +1,0 @@
-!RepositoryCfg_v1
-_mapper: !!python/name:lsst.obs.decam.decamMapper.DecamMapper ''
-_mapperArgs: {}
-_parents: null
-_policy: null
-_root: null
-dirty: true

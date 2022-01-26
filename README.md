@@ -25,24 +25,11 @@ Relevant Files and Directories
 path                  | description
 :---------------------|:-----------------------------
 `raw`                 | Raw, compressed DECam fits images from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
-`calib`               | DECam Community Pipeline MasterCalibs and `wtmap`s from the 2015 HiTS campaign. No raw images. See below for filename information.
 `config`              | Dataset-specific configs to help the Science Pipelines work with this dataset.
-`templates`           | Gen2 Butler repo containing good seeing g-band coadds and a skymap. For use as difference imaging templates.
-`repo`                | A template for a Gen2 Butler raw data repository. This directory must never be written to; instead, it should be copied to a separate location, and data ingested into the copy (this is handled automatically by `ap_verify`, see below). Currently contains the appropriate DECam `_mapper` file.
-`refcats`             | Tarballs of Gaia and PS1 reference catalogs in HTM format for regions overlapping all three HiTS fields.
+`pipelines`           | Dataset-specific pipelines to run on this dataset.
 `dataIds.list`        | List of dataIds for use in running Tasks. Currently set to run all Ids.
-`preloaded`           | Starter Gen3 Butler repo containing a skymap as well as the refcats, calibs, and templates described above.
-
-Master calibration file names
------------------------------
-
-Below are the different types of master calibration files in the `calib` directory:
-
-* fci: dome flat images
-* fcw: dome flat weight maps (not used)
-* zci: zero/bias images
-* zcw: zero/bias weight maps (not used)
-* ici: illumcor images (not used)
+`preloaded`           | Starter Gen3 Butler repo containing a skymap, DECam Community Pipeline MasterCalibs from the 2015 HiTS campaign, deep g-band coadds for use as differencing templates, and Gaia and PS1 reference catalogs in HTM format for regions overlapping any visit in the dataset.
+`scripts`             | Scripts and data for generating this dataset.
 
 Git LFS
 -------
