@@ -1,4 +1,4 @@
-# Config override for lsst.pipe.tasks.imageDifference.ImageDifferenceTask
+# Config override for lsst.pipe.tasks.imageDifference.ImageDifferenceFromTemplateTask
 # Templates are deepCoadds assembled with the CompareWarp algorithm
 
 config.connections.coaddName = "deep"
