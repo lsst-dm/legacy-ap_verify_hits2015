@@ -110,10 +110,16 @@ python "${SCRIPT_DIR}/generate_refcats_gen3.py" -b ${SCRATCH_REPO} -i "${REPO_CO
 
 
 ########################################
+# Download solar system ephemerides
+
+python "${SCRIPT_DIR}/generate_ephemerides_gen3.py"
+
+########################################
 # Final clean-up
 
 butler collection-chain "${DATASET_REPO}" refcats refcats/imported
-butler collection-chain "${DATASET_REPO}" DECam/defaults templates/deep skymaps DECam/calib refcats
+butler collection-chain "${DATASET_REPO}" sso sso/cached
+butler collection-chain "${DATASET_REPO}" DECam/defaults templates/deep skymaps DECam/calib refcats sso
 python "${SCRIPT_DIR}/make_preloaded_export.py" --dataset ap_verify_hits2015
 
 echo "Gen 3 preloaded repository complete."
