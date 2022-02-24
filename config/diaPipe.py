@@ -2,6 +2,7 @@
 # Templates are deepCoadds
 
 config.connections.coaddName = "deep"
+config.doSolarSystemAssociation = True
 
 # TODO: redundant connection definitions workaround for DM-30210
 config.connections.diaSourceTable = "deepDiff_diaSrcTable"

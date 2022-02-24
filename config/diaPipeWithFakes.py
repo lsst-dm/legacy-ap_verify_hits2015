@@ -7,6 +7,7 @@
 
 config.connections.fakesType = "fakes_"
 config.connections.coaddName = "deep"
+config.doSolarSystemAssociation = True
 
 # TODO: redundant connection definitions workaround for DM-30210
 config.connections.diaSourceTable = "fakes_deepDiff_diaSrcTable"
