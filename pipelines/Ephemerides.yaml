@@ -1,0 +1,3 @@
+description: Pipeline for downloading solar system ephemerides given raw images
+tasks:
+  SkyBotEphemerisQuery: lsst.ap.association.skyBotEphemerisQuery.SkyBotEphemerisQueryTask

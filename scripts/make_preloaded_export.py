@@ -55,6 +55,14 @@ def _export_for_copy(dataset, repo):
             contents.saveCollection(collection)
         # Export skymap collection even if it is empty
         contents.saveCollection(lsst.skymap.BaseSkyMap.SKYMAP_RUN_COLLECTION_NAME)
+        # Dataset export exports visits, but need matching visit definitions as
+        # well (DefineVisitsTask won't add them back in).
+        contents.saveDimensionData("exposure",
+                                   butler.registry.queryDimensionRecords("exposure"))
+        contents.saveDimensionData("visit_definition",
+                                   butler.registry.queryDimensionRecords("visit_definition"))
+        contents.saveDimensionData("visit_detector_region",
+                                   butler.registry.queryDimensionRecords("visit_detector_region"))
 
 
 if __name__ == "__main__":
