@@ -8,9 +8,8 @@
 
 config.connections.fakesType = "fakes_"
 config.connections.coaddName = "deep"
-# These two lines can be removed once ImageDifference no longer supports Gen 2
+# This line can be removed once ImageDifference no longer supports Gen 2
 config.coaddName = config.connections.coaddName
-config.getTemplate.coaddName = config.connections.coaddName
 
 # TODO: redundant connection definitions workaround for DM-30210
 config.connections.exposure = "fakes_calexp"
