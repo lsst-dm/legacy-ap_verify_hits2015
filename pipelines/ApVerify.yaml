@@ -1,7 +1,4 @@
-description: Instrumented Alert Production pipeline specialized for CI-HiTS-2015
-#
-# This pipeline delegates to per-task config files to ensure consistency with Gen 2.
-# The config files can be merged into this once ap_verify no longer supports Gen 2.
+description: Instrumented Alert Production pipeline specialized for HiTS-2015
 #
 # This pipeline does not depend on the local ApPipe.yaml, because the definition
 # of the primary ApVerify.yaml is more likely to change than the data-specific

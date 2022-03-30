@@ -8,9 +8,6 @@ description: End to end Alert Production pipeline specialized for HiTS-2015
 # -c diaPipe:apdb.db_url: 'sqlite:////project/user/association.db'
 # Option to specify connection_timeout for sqlite APDBs encountering lock errors, i.e.,
 # -c diaPipe:apdb.connection_timeout: 240
-#
-# This pipeline delegates to per-task config files to ensure consistency with Gen 2.
-# The config files can be merged into this once ap_verify no longer supports Gen 2.
 
 imports:
   - location: $AP_PIPE_DIR/pipelines/DarkEnergyCamera/ApPipe.yaml
