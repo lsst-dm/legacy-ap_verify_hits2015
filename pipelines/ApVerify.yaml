@@ -10,6 +10,7 @@ description: Instrumented Alert Production pipeline specialized for CI-HiTS-2015
 imports:
   - location: $AP_VERIFY_DIR/pipelines/DarkEnergyCamera/ApVerify.yaml
 parameters:
+  # Use dataset's specific templates
   coaddName: deep
   # TODO: redundant connection definitions workaround for DM-30210
   template: deepCoadd
@@ -33,16 +34,7 @@ tasks:
     config:
       # Use dataset's reference catalogs
       file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
-  imageDifference:
-    class: lsst.pipe.tasks.imageDifference.ImageDifferenceFromTemplateTask
-    config:
-      # Use dataset's specific templates
-      file: $AP_VERIFY_HITS2015_DIR/config/imageDifference.py
-  transformDiaSrcCat:
-    class: lsst.ap.association.TransformDiaSourceCatalogTask
-    config:
-      file: $AP_VERIFY_HITS2015_DIR/config/transformDiaSrcCat.py
   diaPipe:
     class: lsst.ap.association.DiaPipelineTask
     config:
-      file: $AP_VERIFY_HITS2015_DIR/config/diaPipe.py
+      doSolarSystemAssociation: true
