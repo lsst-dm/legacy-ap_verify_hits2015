@@ -1,1 +1,4 @@
 setupRequired(obs_decam)
+# TODO: needed for reading old templates
+# Should be removed or updated if DM-28628 updates the templates
+setupRequired(meas_extensions_psfex)
