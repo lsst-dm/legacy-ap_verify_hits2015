@@ -27,8 +27,12 @@ tasks:
   isr:
     class: lsst.ip.isr.IsrTask
     config:
-      # Ignore missing calibrations
-      file: $AP_VERIFY_HITS2015_DIR/config/isr.py
+      # This dataset contains CP calibs, not regular ones
+      connections.bias: cpBias
+      connections.flat: cpFlat
+      # For Gen 2 support
+      biasDataProductName: cpBias
+      flatDataProductName: cpFlat
   calibrate:
     class: lsst.pipe.tasks.calibrate.CalibrateTask
     config:
