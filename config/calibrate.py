@@ -9,14 +9,8 @@ for refObjLoader in (config.astromRefObjLoader,
     refObjLoader.retarget(LoadIndexedReferenceObjectsTask)
 config.connections.astromRefCat = "gaia"
 config.astromRefObjLoader.ref_dataset_name = config.connections.astromRefCat
-config.astromRefObjLoader.filterMap = {
-    "u": "phot_g_mean",
-    "g": "phot_g_mean",
-    "r": "phot_g_mean",
-    "i": "phot_g_mean",
-    "z": "phot_g_mean",
-    "y": "phot_g_mean",
-    "VR": "phot_g_mean"}
+config.astromRefObjLoader.anyFilterMapsToThis = "phot_g_mean"
+
 config.connections.photoRefCat = "panstarrs"
 config.photoRefObjLoader.ref_dataset_name = config.connections.photoRefCat
 config.photoRefObjLoader.filterMap = {
