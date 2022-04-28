@@ -9,17 +9,6 @@ imports:
 parameters:
   # Use dataset's specific templates
   coaddName: deep
-  # TODO: redundant connection definitions workaround for DM-30210
-  template: deepCoadd
-  diaSrcCat: deepDiff_diaSrc
-  diaSrcSchema: deepDiff_diaSrc_schema
-  diaSrcParquet: deepDiff_diaSrcTable
-  diff: deepDiff_differenceExp
-  diffScore: deepDiff_scoreExp
-  diffWarp: deepDiff_warpedExp
-  diffMatch: deepDiff_matchedExp
-  assocSrc: deepDiff_assocDiaSrc
-  # TODO: end DM-30210 workaround
 tasks:
   isr:
     class: lsst.ip.isr.IsrTask

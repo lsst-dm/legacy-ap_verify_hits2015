@@ -10,31 +10,6 @@ imports:
 parameters:
   # Use dataset's specific templates
   coaddName: deep
-  fakesType: fakes_
-  # TODO: redundant connection definitions workaround for DM-30210
-  template: deepCoadd
-  diaSrcCat: deepDiff_diaSrc
-  diaSrcSchema: deepDiff_diaSrc_schema
-  diaSrcParquet: deepDiff_diaSrcTable
-  diff: deepDiff_differenceExp
-  diffScore: deepDiff_scoreExp
-  diffWarp: deepDiff_warpedExp
-  diffMatch: deepDiff_matchedExp
-  assocSrc: deepDiff_assocDiaSrc
-  fakesInput: fakes_fakeSourceCat
-  fakesPvi: fakes_calexp
-  fakesTemplate: fakes_deepCoadd
-  fakesDcrTemplate: fakes_dcrCoadd
-  fakesDiaSrcCat: fakes_deepDiff_diaSrc
-  fakesDiaSrcSchema: fakes_deepDiff_diaSrc_schema
-  fakesDiaSrcParquet: fakes_deepDiff_diaSrcTable
-  fakesDiff: fakes_deepDiff_differenceExp
-  fakesDiffScore: fakes_deepDiff_scoreExp
-  fakesDiffWarp: fakes_deepDiff_warpedExp
-  fakesDiffMatch: fakes_deepDiff_matchedExp
-  fakesAssocSrc: fakes_deepDiff_assocDiaSrc
-  fakesMatchedSrc: fakes_deepDiff_matchDiaSrc
-  # TODO: end DM-30210 workaround
 tasks:
   isr:
     class: lsst.ip.isr.IsrTask
