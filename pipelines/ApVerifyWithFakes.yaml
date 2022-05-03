@@ -22,7 +22,7 @@ tasks:
     config:
       # Use dataset's reference catalogs
       file: $AP_VERIFY_HITS2015_DIR/config/calibrate.py
-  singleFrameWithFakes:
+  processVisitFakes:
     class: lsst.pipe.tasks.processCcdWithFakes.ProcessCcdWithVariableFakesTask
     config:
       python: |
