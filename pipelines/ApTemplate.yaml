@@ -6,7 +6,3 @@ imports:
   - location: $AP_PIPE_DIR/pipelines/DarkEnergyCamera/ApTemplate.yaml
 parameters:
   coaddName: deep
-  # TODO: redundant connection definitions workaround for DM-30210
-  selectedVisits: deepVisits
-  template: deepCoadd
-  # TODO: end DM-30210 workaround
