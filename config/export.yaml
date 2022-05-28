@@ -46299,588 +46299,588 @@ data:
   run: sso/cached
   records:
   - dataset_id:
-    - !uuid '5fdff989-131d-4aca-ad92-00ec20549d29'
+    - !uuid 'fae22c2a-dcf8-48ba-b34a-c635cda3d817'
     data_id:
     - instrument: DECam
       visit: 410915
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410915/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410915_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'ff97304c-0d84-4690-a742-2dcb88342cdc'
+    - !uuid '4784419a-8cff-47f4-9066-46eddde87c7e'
     data_id:
     - instrument: DECam
       visit: 410929
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410929/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410929_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '2c271d5b-7c3e-4816-a898-241abf43b00d'
+    - !uuid '59d6de55-a207-4e26-a7ed-2faf96e0bc4e'
     data_id:
     - instrument: DECam
       visit: 410931
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410931/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410931_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '1d4b4fd3-9ee4-42ca-bb50-1089403dd353'
+    - !uuid 'db2fb71a-79da-4cda-a2bd-fc65716bcee3'
     data_id:
     - instrument: DECam
       visit: 410971
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410971/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410971_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'c48a2c32-f5b4-405f-bf1d-f43c88fbc9c9'
+    - !uuid '17e44ddf-5e5e-46ba-a9a8-dd1394e2c337'
     data_id:
     - instrument: DECam
       visit: 410985
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410985/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410985_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'eeb5eecd-9ea9-4fa5-a703-7bf0f1ea5b5a'
+    - !uuid '86b08ce4-d0e9-4402-b6b6-b3eb6e9809de'
     data_id:
     - instrument: DECam
       visit: 410987
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/410987/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_410987_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '5245db01-5635-46f0-90f6-7ff2127c2bf7'
+    - !uuid 'efb19610-82a3-48d7-9097-2d4136128e5c'
     data_id:
     - instrument: DECam
       visit: 411021
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411021/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411021_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '3fe571e8-d72e-4557-bab0-56996c0f6406'
+    - !uuid 'c39ee28c-c1cf-490c-995c-bb6b4c3f45e8'
     data_id:
     - instrument: DECam
       visit: 411035
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411035/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411035_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'e9006bd5-2951-4e7f-99ee-c30f78f3f58b'
+    - !uuid '24b9b5c5-875a-4ec1-85d4-9a56ea06def0'
     data_id:
     - instrument: DECam
       visit: 411037
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411037/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411037_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '8026d45a-5800-4e6c-a5a0-6016c5071883'
+    - !uuid '56885ccc-51f9-4324-994f-765cb584ee05'
     data_id:
     - instrument: DECam
       visit: 411055
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411055/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411055_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '48afdd1c-5c73-48ef-bafc-ba6371c175fe'
+    - !uuid '1b7afdea-f11e-4ca6-930d-55e787f412ae'
     data_id:
     - instrument: DECam
       visit: 411069
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411069/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411069_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '08d87ab8-7607-4ff3-b968-0ac05b3e2256'
+    - !uuid '333a60e5-caf7-46a7-84c4-853e17576bc5'
     data_id:
     - instrument: DECam
       visit: 411071
     path: sso/cached/visitSsObjects/20150217/g/g_DECam_SDSS_c0001_4720.0_1520.0/411071/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411071_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '6d151efa-99b9-440f-b86d-9225c18e63a8'
+    - !uuid '59d9b072-7367-49bf-af41-82afff9d0333'
     data_id:
     - instrument: DECam
       visit: 411255
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411255/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411255_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '77da9569-80d2-4cf9-8673-64574547f961'
+    - !uuid '663e8954-1366-4fd4-8db5-6cb8921b4087'
     data_id:
     - instrument: DECam
       visit: 411269
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411269/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411269_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '644172bc-a6d6-44f2-b5fb-971bc74d8b28'
+    - !uuid '9048aa69-6cf9-4d70-8c40-1160b5f7d596'
     data_id:
     - instrument: DECam
       visit: 411271
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411271/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411271_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'fc73b04d-b650-4e97-af4f-53e5a1ba08f8'
+    - !uuid '6cf8b57b-6df2-4760-8852-cafbc2df35bb'
     data_id:
     - instrument: DECam
       visit: 411305
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411305/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411305_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '20e2488d-9735-416b-a159-cc5152794506'
+    - !uuid 'f3e38571-b428-45cf-a55f-c18a01d193d7'
     data_id:
     - instrument: DECam
       visit: 411319
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411319/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411319_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '777b4c26-a9d9-446b-bc48-92a322784614'
+    - !uuid '3de13398-9713-42a9-9015-45d59354712d'
     data_id:
     - instrument: DECam
       visit: 411321
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411321/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411321_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '5e878e04-0f5e-40f0-963a-bb7f938e400a'
+    - !uuid '0f862fb8-2410-4555-8e96-bc7d7e156ed2'
     data_id:
     - instrument: DECam
       visit: 411355
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411355/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411355_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '7a5211c5-9925-4b8a-9c06-6aa8f0c21582'
+    - !uuid '0676b681-f87b-46d1-9256-5a2882368660'
     data_id:
     - instrument: DECam
       visit: 411369
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411369/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411369_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'c7c2adab-f1d4-4438-864c-674772c081b2'
+    - !uuid '362c301c-e352-4328-a25c-0be8e02ba418'
     data_id:
     - instrument: DECam
       visit: 411371
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411371/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411371_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '8e0049b8-dcf8-4198-9506-b312a5b2c787'
+    - !uuid '7403b7fb-5431-450d-81a5-291102b689dc'
     data_id:
     - instrument: DECam
       visit: 411406
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411406/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411406_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'f8130e16-10a8-4b68-a033-9354ad674784'
+    - !uuid '82bd7a68-f850-4058-8339-578b477fec5c'
     data_id:
     - instrument: DECam
       visit: 411420
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411420/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411420_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'addd25aa-4ca2-4246-9f56-b16dce2aa0f4'
+    - !uuid '43d878ad-0fd5-4cce-86ea-400c2dca45f1'
     data_id:
     - instrument: DECam
       visit: 411422
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411422/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411422_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '3d287c11-8d05-4d9c-a174-090e2095d411'
+    - !uuid '962eb334-4e9e-4a22-83da-a3eb3ee53c32'
     data_id:
     - instrument: DECam
       visit: 411456
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411456/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411456_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '71c23f48-e6ca-4b58-8e53-4da64fde43a9'
+    - !uuid '1096ea18-0616-4d9b-bd49-60581eba5eaf'
     data_id:
     - instrument: DECam
       visit: 411470
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411470/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411470_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '83d22217-b5df-4cec-a0fa-b6ba564c4c42'
+    - !uuid 'beb684a2-0fea-409b-a435-40fb897e2c8e'
     data_id:
     - instrument: DECam
       visit: 411472
     path: sso/cached/visitSsObjects/20150218/g/g_DECam_SDSS_c0001_4720.0_1520.0/411472/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411472_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '10790811-d181-4bd9-a230-b780fde005cc'
+    - !uuid '4e94e358-4a4b-4e69-9303-d008e39f07bf'
     data_id:
     - instrument: DECam
       visit: 411657
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411657/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411657_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '6dcdbc41-8f47-488b-a400-942ef5dd1f0d'
+    - !uuid '29e5ca53-592e-4e44-bac5-2afed57e99b9'
     data_id:
     - instrument: DECam
       visit: 411671
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411671/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411671_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '79c18e22-9717-49eb-bf55-f7959bfb750c'
+    - !uuid '92b5781f-f960-48e7-bccd-bd54d49b94d1'
     data_id:
     - instrument: DECam
       visit: 411673
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411673/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411673_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '95071c3d-a7e7-4503-84dd-0078e6ab8796'
+    - !uuid '87b92873-f3ed-42a4-a806-8037ddeeac65'
     data_id:
     - instrument: DECam
       visit: 411707
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411707/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411707_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '94bba135-f304-4d91-8f32-b25b42952604'
+    - !uuid '458757c8-27b4-4cda-9883-1157a01e1e5d'
     data_id:
     - instrument: DECam
       visit: 411721
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411721/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411721_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '3034a93c-7942-48a6-8c1e-1a494951c53f'
+    - !uuid '7f4b4fbb-5866-4781-94f0-c9337ae046b5'
     data_id:
     - instrument: DECam
       visit: 411724
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411724/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411724_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '73ebff30-4f5d-4c3a-96d2-aa4ff7d290ea'
+    - !uuid '579bcc22-c24b-419a-bd48-f3cd651a7cd8'
     data_id:
     - instrument: DECam
       visit: 411758
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411758/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411758_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '254b65a7-d3c0-4d04-bd8d-b235d0130cde'
+    - !uuid '043a6667-2283-4295-9290-6889cc51cc17'
     data_id:
     - instrument: DECam
       visit: 411772
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411772/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411772_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '5a7d79fa-eb03-4f79-8bcb-5abb1fea737d'
+    - !uuid '5e45a804-c1d4-403f-8bae-45d54fa2be68'
     data_id:
     - instrument: DECam
       visit: 411774
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411774/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411774_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '71c7dc1e-8845-4b31-a9c6-85dba896f096'
+    - !uuid '96914fc5-e58d-4cbe-b69e-f4391ede091c'
     data_id:
     - instrument: DECam
       visit: 411808
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411808/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411808_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '6135754f-6482-4a1b-81d1-afc37be582e8'
+    - !uuid '05735a5e-58aa-4702-83ae-621cfc4a9c88'
     data_id:
     - instrument: DECam
       visit: 411822
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411822/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411822_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'f2090f68-d7be-4638-8d15-8a494d91ac54'
+    - !uuid 'fc581164-1d51-4344-898b-6785af677b10'
     data_id:
     - instrument: DECam
       visit: 411824
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411824/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411824_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'bcefd748-3c9b-4beb-9ea4-b03d3988d290'
+    - !uuid 'c1a6d98b-28e5-4c2e-b2f5-c88decb854bc'
     data_id:
     - instrument: DECam
       visit: 411858
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411858/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411858_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '2c38c057-2c95-4f01-b85a-f227bfa23c5e'
+    - !uuid 'c2c566a3-8b9e-4809-961f-2f343515c9e0'
     data_id:
     - instrument: DECam
       visit: 411872
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411872/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411872_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '07c8be37-6f7d-45de-981d-88a07f2d1bb7'
+    - !uuid 'b49562b5-6a0f-424b-af69-8c7541cd6f6a'
     data_id:
     - instrument: DECam
       visit: 411874
     path: sso/cached/visitSsObjects/20150219/g/g_DECam_SDSS_c0001_4720.0_1520.0/411874/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_411874_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'acd8eab5-f07a-46b7-b261-c233488f58d0'
+    - !uuid 'abbcd847-fbef-4eb4-8c0b-962e288e2693'
     data_id:
     - instrument: DECam
       visit: 412060
     path: sso/cached/visitSsObjects/20150220/g/g_DECam_SDSS_c0001_4720.0_1520.0/412060/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412060_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'f3707d72-aa23-4002-afa9-b70d1a4e019e'
+    - !uuid 'e10dff45-437d-42bd-a344-0dd00cfdba23'
     data_id:
     - instrument: DECam
       visit: 412074
     path: sso/cached/visitSsObjects/20150220/g/g_DECam_SDSS_c0001_4720.0_1520.0/412074/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412074_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'e793842a-4d1f-4a6d-957a-8084ad64b8d0'
+    - !uuid 'd3a1dc7f-794c-49ac-b3d8-80f2e7b734ff'
     data_id:
     - instrument: DECam
       visit: 412076
     path: sso/cached/visitSsObjects/20150220/g/g_DECam_SDSS_c0001_4720.0_1520.0/412076/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412076_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '5ba4ccea-c367-4dc0-b26c-788164142b64'
+    - !uuid '8de7289c-6076-4691-9c9c-1bf3a7c86206'
     data_id:
     - instrument: DECam
       visit: 412250
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412250/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412250_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '4aadc3cb-6376-4120-9ae1-c8717b83dc50'
+    - !uuid '67fcef4f-cdd1-4877-864a-4757d805d8f7'
     data_id:
     - instrument: DECam
       visit: 412264
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412264/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412264_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '6f0b6040-55d1-45ea-9a28-c27fed3089f1'
+    - !uuid 'b5cfcc79-6e4e-4c99-9e04-c4b6dc2f2d10'
     data_id:
     - instrument: DECam
       visit: 412266
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412266/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412266_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'f9a1d094-6455-440a-a88c-dd3d6d9a78d9'
+    - !uuid 'f21ca8e3-05a4-4b7c-ab30-13a8395c57fc'
     data_id:
     - instrument: DECam
       visit: 412307
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412307/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412307_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'cd26cc71-d355-478c-967b-ee3b41719714'
+    - !uuid '227f4470-1ffc-4b92-bd5e-f9470808b581'
     data_id:
     - instrument: DECam
       visit: 412321
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412321/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412321_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '874fbef7-21d1-4c07-889d-3f7024f31dbe'
+    - !uuid '6ead8011-7853-43fc-a404-c5b7a09ac364'
     data_id:
     - instrument: DECam
       visit: 412324
     path: sso/cached/visitSsObjects/20150221/g/g_DECam_SDSS_c0001_4720.0_1520.0/412324/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412324_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'e3dec84f-1ded-4d1b-ba69-ca21d0be88bc'
+    - !uuid '4ef246ce-165e-47ce-afe5-389b92e6d602'
     data_id:
     - instrument: DECam
       visit: 412504
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412504/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412504_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '8a9d46e8-eb54-46ad-b7cf-f611d60e1668'
+    - !uuid '543f76d3-7182-4943-80ed-4c5bdb033ae0'
     data_id:
     - instrument: DECam
       visit: 412518
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412518/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412518_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '925c3d77-beb9-4b19-807b-166987cdf3eb'
+    - !uuid '738c01d2-3969-4019-9cb8-9e9320a002f6'
     data_id:
     - instrument: DECam
       visit: 412520
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412520/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412520_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'f59741af-ac00-47a3-81a4-1199b7f5d7b8'
+    - !uuid 'afc945ff-04cf-429c-9652-fbb88408d36f'
     data_id:
     - instrument: DECam
       visit: 412554
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412554/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412554_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'b62ffe5e-7456-4694-bff8-a0ec62c99257'
+    - !uuid 'face7039-2541-4766-b95a-26fba77adc46'
     data_id:
     - instrument: DECam
       visit: 412568
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412568/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412568_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '72731972-0f44-4688-b161-8e21d834ad9f'
+    - !uuid '437f48b3-c4c9-4d33-a6a2-43360ecdfcc7'
     data_id:
     - instrument: DECam
       visit: 412570
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412570/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412570_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '8680c6fd-cb67-4eec-b30b-e4a4460b4b5f'
+    - !uuid '1c5ce623-21f1-4ab7-8546-cde1c0cb9c42'
     data_id:
     - instrument: DECam
       visit: 412604
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412604/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412604_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '9c29a129-67b1-435a-8110-63997401128f'
+    - !uuid 'c8a9a73e-bcba-406d-86db-6c18d9e79fa8'
     data_id:
     - instrument: DECam
       visit: 412618
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412618/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412618_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'b69ca118-7822-4af5-a0ea-59c87a282f68'
+    - !uuid '2ea34d49-4c74-48c1-b845-3368a8a795aa'
     data_id:
     - instrument: DECam
       visit: 412620
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412620/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412620_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '9a2aa985-1611-4634-a007-8731712dea10'
+    - !uuid 'b471f7e0-c547-474e-883c-ff1712d81d17'
     data_id:
     - instrument: DECam
       visit: 412654
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412654/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412654_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '105d6c27-6a31-4f7c-8302-ce1d23c6704d'
+    - !uuid '0709197c-1188-4321-9a1c-4a3bbff8d207'
     data_id:
     - instrument: DECam
       visit: 412668
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412668/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412668_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '2dea2b47-a33b-4ae6-8429-d763e25a9be6'
+    - !uuid '4e69cd29-42d4-4343-b320-6557b6904faf'
     data_id:
     - instrument: DECam
       visit: 412670
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412670/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412670_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '9ae41af7-699f-4c33-b65b-2193d4d67c8c'
+    - !uuid '5e28a33a-6fb5-4cf3-946e-d8f5c52191dd'
     data_id:
     - instrument: DECam
       visit: 412704
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412704/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412704_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '888e5970-6762-46b9-b54c-8521f18ffad5'
+    - !uuid 'bcdf1dc4-0a2d-455f-8d73-277bc8db7956'
     data_id:
     - instrument: DECam
       visit: 412718
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412718/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412718_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'e4021c0a-9680-4b09-b3a8-4b43ea6029af'
+    - !uuid 'e5d4788a-11a7-4da1-84ce-9cb2892f8387'
     data_id:
     - instrument: DECam
       visit: 412720
     path: sso/cached/visitSsObjects/20150222/g/g_DECam_SDSS_c0001_4720.0_1520.0/412720/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_412720_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '4f259aa8-91ca-457b-b288-7c81e9525c03'
+    - !uuid '82a99857-c4f9-4325-9927-0e26413b3bfa'
     data_id:
     - instrument: DECam
       visit: 413635
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413635/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413635_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'b48e9564-1211-4f40-a478-13fbb3832398'
+    - !uuid 'e6878756-9b91-462a-810c-2c97497ce34b'
     data_id:
     - instrument: DECam
       visit: 413649
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413649/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413649_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '04d37f61-8259-4071-ad4a-42ef048e61ad'
+    - !uuid 'd6b6e7f5-8478-468f-9308-095e2c32252f'
     data_id:
     - instrument: DECam
       visit: 413651
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413651/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413651_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '2f75afaf-35b6-4825-a0f3-5059c84ddae2'
+    - !uuid '0d5ed6cc-c486-422d-8ef2-d29ae8d6c817'
     data_id:
     - instrument: DECam
       visit: 413680
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413680/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413680_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'b8e453b6-6888-4a6b-9d8a-952712b36217'
+    - !uuid '49c7a0a2-8a2d-44d3-8adb-db5faee64f26'
     data_id:
     - instrument: DECam
       visit: 413694
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413694/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413694_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '353173be-6f4d-4695-83d0-68ef409aa5fd'
+    - !uuid 'b268efb5-2414-4de6-a85e-528ce19bce6d'
     data_id:
     - instrument: DECam
       visit: 413696
     path: sso/cached/visitSsObjects/20150224/g/g_DECam_SDSS_c0001_4720.0_1520.0/413696/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_413696_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'fb8d56e0-6fcc-4b3f-be07-33974df455a8'
+    - !uuid '89d415b9-7618-47eb-9ae2-acafe663c828'
     data_id:
     - instrument: DECam
       visit: 415314
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415314/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415314_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'cccf8198-1247-496a-b08d-8494669d2d7b'
+    - !uuid '158cd16b-25b7-4b8f-ab5b-c370e1314b1e'
     data_id:
     - instrument: DECam
       visit: 415328
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415328/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415328_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '5dbdd112-536b-4b2b-ab10-a3130dab4c6f'
+    - !uuid '9183b62c-b95c-4655-91bb-3369a86325f7'
     data_id:
     - instrument: DECam
       visit: 415330
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415330/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415330_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '7b86e61d-1a19-485a-8fdd-d0a80af1784c'
+    - !uuid 'e32cfa39-9cca-447e-8204-c2dd3ba09670'
     data_id:
     - instrument: DECam
       visit: 415364
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415364/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415364_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '2e5963f6-5089-403a-8413-85bee933e7fa'
+    - !uuid 'c0e2d95f-1174-47e6-b0d8-44c0956cba68'
     data_id:
     - instrument: DECam
       visit: 415378
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415378/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415378_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '82c4c12f-6657-4df7-9488-e8d69d03b4a0'
+    - !uuid '673f5df8-9f04-4766-b4da-fb4c75d7fe04'
     data_id:
     - instrument: DECam
       visit: 415380
     path: sso/cached/visitSsObjects/20150227/g/g_DECam_SDSS_c0001_4720.0_1520.0/415380/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_415380_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'd9a48230-9108-448e-84f5-984c6c4bd21b'
+    - !uuid '2f5c0c2e-89ab-419c-84b4-d0d504a96726'
     data_id:
     - instrument: DECam
       visit: 419791
     path: sso/cached/visitSsObjects/20150309/g/g_DECam_SDSS_c0001_4720.0_1520.0/419791/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_419791_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '0d7ff212-46d1-4ec9-8db1-455e83348aff'
+    - !uuid 'c28eff47-58c1-49c8-840c-1d2b9f9ec906'
     data_id:
     - instrument: DECam
       visit: 419802
     path: sso/cached/visitSsObjects/20150309/g/g_DECam_SDSS_c0001_4720.0_1520.0/419802/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_419802_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid '93a7b29d-ae44-4216-8051-c113a77fef02'
+    - !uuid 'e5966804-4c78-4d33-93ef-013cc6edf02d'
     data_id:
     - instrument: DECam
       visit: 419804
     path: sso/cached/visitSsObjects/20150309/g/g_DECam_SDSS_c0001_4720.0_1520.0/419804/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_419804_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'b8e731a9-f080-4b36-9026-2d9dc13cebe5'
+    - !uuid '1bf3f6c8-d6d3-4a2a-8af0-39549153e483'
     data_id:
     - instrument: DECam
       visit: 421590
     path: sso/cached/visitSsObjects/20150314/g/g_DECam_SDSS_c0001_4720.0_1520.0/421590/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_421590_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'ea3bc7ba-a6a8-466c-b350-db0f06063e55'
+    - !uuid '51dff8e8-ba95-4134-b4dc-2810de891102'
     data_id:
     - instrument: DECam
       visit: 421604
     path: sso/cached/visitSsObjects/20150314/g/g_DECam_SDSS_c0001_4720.0_1520.0/421604/visitSsObjects_DECam_g_g_DECam_SDSS_c0001_4720_0_1520_0_421604_sso_cached.parq
     formatter: lsst.daf.butler.formatters.parquet.ParquetFormatter
   - dataset_id:
-    - !uuid 'be5944bf-7f3f-4917-ae88-482eef664242'
+    - !uuid '4fda4b12-5e40-47f6-a8a1-91bef301878a'
     data_id:
     - instrument: DECam
       visit: 421606
