@@ -9,6 +9,10 @@ It is a good example dataset for difference imaging with DECam.
 
 .. _HiTS: https://doi.org/10.3847/0004-637X/832/2/155
 
+.. warning::
+
+   This package is deprecated, and will be removed from the Rubin Observatory Science Pipelines after release 25.0.0.
+
 .. _ap_verify_hits2015-using:
 
 Using ap_verify_hits2015

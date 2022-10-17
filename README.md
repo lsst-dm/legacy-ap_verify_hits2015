@@ -6,6 +6,8 @@ This and other `ap_verify` "datasets" are based on [ap_verify_dataset_template](
 
 Contains g-band DECam data from the HiTS (2015) fields `Blind15A_26`, `Blind15A_40`, and `Blind15A_42`.
 
+*Warning:* This package is deprecated, and will be removed from the Rubin Observatory Science Pipelines distribution after release 25.0.0.
+
 ---
 **Note**
 
